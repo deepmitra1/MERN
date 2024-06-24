@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check User's Age</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        #ageButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Check Your Age</h1>
+    <button id="ageButton">Enter Your Age</button>
+
+    <script>
+        function getUserAge(userage) {
+            let age = prompt("Please enter your age:");
+            if (age) {
+                userage(age);
+            }
+        }
+
+        function checkIfAdult(age) {
+            if (age<0) {
+                alert("Please enter a valid number.");
+            } else if (age >= 18) {
+                alert("You are an adult.");
+            } else {
+                alert("You are not an adult.");
+            }
+        }
+
+        document.getElementById('ageButton').addEventListener('click', function() {
+            getUserAge(checkIfAdult);
+        });
+    </script>
+</body>
+</html>
